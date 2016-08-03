@@ -12,7 +12,7 @@ var express = require('express')
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 8080);
+  app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.set('view options', {layout: false});
@@ -42,7 +42,7 @@ var employeeProvider= new EmployeeProvider(mongoHost, mongoPort);
 app.get('/', function(req, res){
   employeeProvider.findAll(function(error, emps){
       res.render('index', {
-            title: 'Employees',
+            title: 'Employee Master',
             employees:emps
         });
   });
@@ -93,4 +93,4 @@ app.post('/employee/:id/delete', function(req, res) {
 	});
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 3000);
