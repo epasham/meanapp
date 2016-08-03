@@ -42,7 +42,7 @@ var employeeProvider= new EmployeeProvider(mongoHost, mongoPort);
 app.get('/', function(req, res){
   employeeProvider.findAll(function(error, emps){
       res.render('index', {
-            title: 'Employee Master',
+            title: 'Employees',
             employees:emps
         });
   });
